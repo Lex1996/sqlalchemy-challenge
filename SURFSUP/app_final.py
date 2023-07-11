@@ -111,10 +111,12 @@ def tobs():
      # Create our session (link) from Python to the DB
    # session = Session(engine)
 
+
+
     #Query the dates and temperature observations of the most active station
     Result =  session.query(Measurement.date,Measurement.tobs).\
         filter(Measurement.date>='2016-08-23').filter(Station.station == Measurement.station).\
-            filter(Station.name == 'WAIHEE 837.5, HI US').all()
+            filter(Station.station == 'USC00519281').all()
 
     session.close()
 
